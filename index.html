@@ -1,13 +1,240 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>موقعي</title>
+  <title>Mohamed Ghabri | Portfolio</title>
+  <meta name="description" content="Portfolio de Mohamed Ghabri, étudiant en Informatique de Gestion à l'ISAAS (Sfax).">
+  <meta name="theme-color" content="#0b0f1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>مرحبا بالعالم</h1>
+
+  <div class="preloader" id="preloader"><div class="loader"></div></div>
+  <div class="progress" id="progress"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="nav" id="nav">
+    <a href="#home" class="logo">M<span>.</span>Ghabri</a>
+    <nav class="menu" id="menu">
+      <a href="#home" class="active" data-ar="الرئيسية">Accueil</a>
+      <a href="#about" data-ar="من أنا">À propos</a>
+      <a href="#skills" data-ar="المهارات">Compétences</a>
+      <a href="#experience" data-ar="المسار">Parcours</a>
+      <a href="#projects" data-ar="المشاريع">Projets</a>
+      <a href="#contact" data-ar="تواصل">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langBtn" aria-label="Langue">AR</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Thème">🌙</button>
+      <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="blob b1"></div><div class="blob b2"></div>
+    <div class="hero-text reveal">
+      <span class="badge" data-ar="👋 مرحبا بيك في موقعي">👋 Bienvenue sur mon portfolio</span>
+      <h1><span data-ar="أنا">Je suis</span> <span class="grad">Mohamed Ghabri</span></h1>
+      <h2><span id="typed" class="grad"></span><span class="caret">|</span></h2>
+      <p data-ar="طالب في إعلامية التصرف بالمعهد العالي لإدارة الأعمال بصفاقس (ISAAS)، مهتم بالتطوير المعلوماتي وتحليل البيانات وذكاء الأعمال.">
+        Étudiant en Informatique de Gestion à l'ISAAS, je m'intéresse au développement informatique, à l'analyse des données et à la Business Intelligence.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn primary" data-ar="تواصل معايا">Me contacter</a>
+        <a href="cv.pdf" class="btn ghost" download data-ar="⬇ تحميل السيرة الذاتية">⬇ Télécharger mon CV</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/ghabri866" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/mohamed-ghabri-69077529b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <div class="photo-wrap">
+        <img src="images/profile.jpg" alt="Mohamed Ghabri"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'MG'}))">
+      </div>
+      <div class="float-card c1">💻 Dev</div>
+      <div class="float-card c2">📊 Data & BI</div>
+      <div class="float-card c3">🤖 Robotique</div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="↓">⌄</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="title reveal"><span class="grad" data-ar="من أنا">À propos de moi</span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p data-ar="طالب في إعلامية التصرف بـ ISAAS، مهتم بالتطوير المعلوماتي وتحليل البيانات وذكاء الأعمال (Business Intelligence). متحمس وجدي وراغب في التعلم، نحب نطوّر مهاراتي التقنية والمهنية من خلال مشاريع تطبيقية وتجارب جديدة.">
+            Étudiant en Informatique de Gestion à l'ISAAS, je m'intéresse au développement informatique, à l'analyse des données et à la Business Intelligence. Motivé, sérieux et désireux d'apprendre, je cherche à développer mes compétences techniques et professionnelles à travers des projets pratiques et de nouvelles expériences.
+          </p>
+          <ul class="info">
+            <li><b data-ar="الاسم :">Nom :</b> <span>Mohamed Ghabri</span></li>
+            <li><b data-ar="الجنسية :">Nationalité :</b> <span data-ar="تونسي 🇹🇳">Tunisienne 🇹🇳</span></li>
+            <li><b data-ar="المقر :">Localisation :</b> <span data-ar="المكناسي، سيدي بوزيد، تونس">Maknassy, Sidi Bouzid, Tunisie</span></li>
+            <li><b data-ar="الدراسة :">Études :</b> <span data-ar="إعلامية التصرف، ISAAS صفاقس">Informatique de Gestion, ISAAS Sfax</span></li>
+            <li><b data-ar="اللغات :">Langues :</b> <span data-ar="العربية، الفرنسية، الإنجليزية، الإسبانية">Arabe, Français, Anglais, Espagnol</span></li>
+          </ul>
+        </div>
+        <div class="stats reveal">
+          <div class="stat"><b class="count" data-to="4" data-suffix="+">0</b><span data-ar="سنوات نشاط جمعياتي">ans d'engagement associatif</span></div>
+          <div class="stat"><b class="count" data-to="3">0</b><span data-ar="جمعيات ونوادي">associations</span></div>
+          <div class="stat"><b class="count" data-to="2">0</b><span data-ar="تكوينات">formations suivies</span></div>
+          <div class="stat"><b class="count" data-to="4">0</b><span data-ar="لغات">langues</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section alt" id="skills">
+    <div class="container">
+      <h2 class="title reveal"><span class="grad" data-ar="مهاراتي">Compétences</span></h2>
+      <div class="skills-grid">
+        <div class="skill reveal"><div class="skill-head"><span>Python</span><span>40%</span></div><div class="bar"><i data-w="40"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span>Photoshop / Canva</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span data-ar="مكتبية (Word, Excel, PowerPoint)">Bureautique (Word, Excel, PowerPoint)</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span data-ar="التصميم الغرافيكي">Conception graphique / Design</span><span>60%</span></div><div class="bar"><i data-w="60"></i></div></div>
+      </div>
+      <div class="chips reveal">
+        <span>HTML</span><span>CSS</span><span>WordPress</span><span>Git & GitHub</span>
+        <span data-ar="الروبوتيك">Robotique</span>
+        <span data-ar="تحليل البيانات">Analyse de données</span>
+        <span>Business Intelligence</span>
+      </div>
+
+      <h3 class="sub skills-sub reveal" data-ar="اللغات">Langues</h3>
+      <div class="skills-grid">
+        <div class="skill reveal"><div class="skill-head"><span data-ar="العربية (اللغة الأم)">Arabe (langue maternelle)</span><span>100%</span></div><div class="bar"><i data-w="100"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span data-ar="الفرنسية (ثنائي اللغة)">Français (bilingue)</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span data-ar="الإنجليزية (متوسط)">Anglais (intermédiaire)</span><span>40%</span></div><div class="bar"><i data-w="40"></i></div></div>
+        <div class="skill reveal"><div class="skill-head"><span data-ar="الإسبانية (مبتدئ)">Espagnol (débutant)</span><span>20%</span></div><div class="bar"><i data-w="20"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="title reveal"><span class="grad" data-ar="مساري">Parcours</span></h2>
+      <div class="cols">
+        <div>
+          <h3 class="sub reveal" data-ar="الدراسة والتكوين">Études & formations</h3>
+          <div class="timeline">
+            <div class="t-item reveal"><span class="date">2026</span>
+              <h3 data-ar="باكالوريا علوم تجريبية">Baccalauréat Sciences Expérimentales</h3>
+              <h4 data-ar="معهد ابن رشد، المكناسي">Lycée Ibn Rochd, Maknassy</h4></div>
+            <div class="t-item reveal"><span class="date" data-ar="مارس 2025 - أفريل 2025">Mars 2025 - Avril 2025</span>
+              <h3 data-ar="تكوين في تطوير الويب">Formation développement web</h3>
+              <h4 data-ar="جمعية AMAVI، سيدي بوزيد">Association AMAVI, Sidi Bouzid</h4>
+              <p data-ar="المشاركة في Bootcamp TACIR بسيدي بوزيد (11 إلى 13 أفريل 2025): تحويل الأفكار الإبداعية إلى نماذج رقمية أولية.">Participation au grand Bootcamp TACIR (11 au 13 avril 2025) : transformation d'idées créatives en prototypes numériques.</p></div>
+            <div class="t-item reveal"><span class="date" data-ar="جانفي 2025 - فيفري 2025">Janvier 2025 - Février 2025</span>
+              <h3 data-ar="تنظيم الوقت وإدارة الضغط">Gestion du temps et maîtrise du stress</h3>
+              <h4>Edraak, Maknassy</h4>
+              <p data-ar="تعلم مبادئ تنظيم الوقت والتحكم في المواقف لإنتاجية وجودة حياة أفضل.">Apprentissage des principes de gestion du temps et du contrôle des situations pour une meilleure productivité.</p></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="sub reveal" data-ar="الحياة الجمعياتية">Vie associative</h3>
+          <div class="timeline">
+            <div class="t-item reveal"><span class="date" data-ar="سبتمبر 2026 - الآن">Septembre 2026 - Présent</span>
+              <h3 data-ar="عضو نشيط، IEEE Student Branch">Membre actif, IEEE Student Branch</h3>
+              <h4 data-ar="ISAAS، صفاقس">ISAAS, Sfax</h4>
+              <p data-ar="المشاركة في الأنشطة التكنولوجية والورشات والندوات، والعمل الجماعي لتبادل المعرفة في مجال التكنولوجيات الحديثة.">Participation aux activités, ateliers et séminaires technologiques, et travail en équipe pour l'échange de connaissances.</p></div>
+            <div class="t-item reveal"><span class="date" data-ar="ماي 2024 - الآن">Mai 2024 - Présent</span>
+              <h3 data-ar="عضو، جمعية Vision">Membre, Association Vision</h3>
+              <h4 data-ar="جمعية غير ربحية، المكناسي">Association à but non lucratif, Maknassy</h4>
+              <p data-ar="متابعة تكوينات تطبيقية في تطوير الويب والروبوتيك.">Suivi de formations pratiques en développement web et robotique.</p></div>
+            <div class="t-item reveal"><span class="date" data-ar="أفريل 2022 - الآن">Avril 2022 - Présent</span>
+              <h3 data-ar="عضو نشيط ومتطوع، جمعية Art">Membre actif & bénévole, Association Art</h3>
+              <h4 data-ar="المكناسي">Maknassy</h4>
+              <p data-ar="تعلم أساسيات تطوير الويب (HTML، CSS، WordPress)، والتعرف على الروبوتيك والأنظمة المدمجة، وإنجاز مشاريع تطبيقية.">Bases du développement web (HTML, CSS, WordPress), initiation à la robotique et aux systèmes embarqués, réalisation de projets pratiques.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section alt" id="projects">
+    <div class="container">
+      <h2 class="title reveal"><span class="grad" data-ar="مشاريعي">Projets</span></h2>
+      <div class="projects">
+        <article class="card tilt reveal">
+          <div class="thumb"><img src="images/project1.jpg" alt="Portfolio" onerror="this.style.display='none'"></div>
+          <div class="card-body">
+            <h3 data-ar="هذا الموقع (Portfolio)">Ce portfolio</h3>
+            <p data-ar="موقع شخصي متجاوب بأنيميشن، مبني من الصفر ومنشور على GitHub Pages.">Site personnel responsive avec animations, construit from scratch et publié sur GitHub Pages.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
+            <a href="https://github.com/ghabri866/My-website" target="_blank" rel="noopener" class="link" data-ar="الكود على GitHub ←">Voir le code sur GitHub →</a>
+          </div>
+        </article>
+        <article class="card tilt reveal soon">
+          <div class="thumb">🚀</div>
+          <div class="card-body">
+            <h3 data-ar="مشروع قادم">Prochain projet</h3>
+            <p data-ar="مشروع جديد في الطريق، ترقبوه قريبا.">Un nouveau projet arrive bientôt.</p>
+            <div class="tags"><span data-ar="قريبا">Bientôt</span></div>
+          </div>
+        </article>
+        <article class="card tilt reveal soon">
+          <div class="thumb">📊</div>
+          <div class="card-body">
+            <h3 data-ar="مشروع تحليل بيانات">Projet Data / BI</h3>
+            <p data-ar="مشروع في تحليل البيانات وذكاء الأعمال قيد الإعداد.">Un projet d'analyse de données et Business Intelligence est en préparation.</p>
+            <div class="tags"><span data-ar="قريبا">Bientôt</span></div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="sub skills-sub reveal" data-ar="هواياتي">Loisirs</h3>
+      <div class="chips reveal">
+        <span data-ar="⚽ كرة القدم">⚽ Football</span>
+        <span>🎮 Gaming / E-sports</span>
+        <span data-ar="🤝 التطوع والعمل الجمعياتي">🤝 Bénévolat & travail associatif</span>
+        <span data-ar="🤖 الروبوتيك والإعلامية">🤖 Robotique & informatique</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="title reveal"><span class="grad" data-ar="تواصل معايا">Contact</span></h2>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p data-ar="عندك مشروع، فرصة تدريب ولا فكرة؟ ابعثلي رسالة ونرد عليك في أقرب وقت.">Un projet, un stage ou une idée ? Écrivez-moi, je vous réponds rapidement.</p>
+          <p data-ar="📍 المكناسي، سيدي بوزيد، تونس">📍 Maknassy, Sidi Bouzid, Tunisie</p>
+          <div class="links">
+            <a class="btn ghost" href="https://www.linkedin.com/in/mohamed-ghabri-69077529b" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn ghost" href="https://github.com/ghabri866" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <!-- بدّل YOUR_FORM_ID بمعرّف Formspree باش الرسائل توصلك -->
+        <form class="form reveal" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Nom" data-ar-ph="الاسم" required>
+          <input type="email" name="email" placeholder="Email" data-ar-ph="الإيميل" required>
+          <textarea name="message" rows="5" placeholder="Votre message" data-ar-ph="رسالتك" required></textarea>
+          <button type="submit" class="btn primary" data-ar="إرسال ✉">Envoyer ✉</button>
+          <p class="form-msg" id="formMsg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Mohamed Ghabri. <span data-ar="جميع الحقوق محفوظة.">Tous droits réservés.</span></p>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Haut">↑</button>
   <script src="script.js"></script>
 </body>
 </html>
